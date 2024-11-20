@@ -5,6 +5,10 @@ on:
     branches:
       - develop
 
+
+env:
+  PYTHON_VERSION: "3.13"
+
 jobs:
   build_and_push:
     runs-on: ubuntu-latest
@@ -19,6 +23,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Run Checks and tests
+        run: |
+          pip install --upgrade pip setuptools wheel
+          pip install -r requirements.txt
+
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
 
@@ -31,5 +45,7 @@ jobs:
           context: .
           platforms: linux/amd64
           push: false
+          build-args: |
+            version=${{ env.PYTHON_VERSION }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
