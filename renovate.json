@@ -6,7 +6,7 @@
   "dependencyDashboard": true,
   "pip_requirements": {
     "fileMatch": [
-      "requirements.txt"
+      "(^|/)[\\w-]*requirements([-.]\\w+)?\\.(txt|pip)$"
     ]
   }
 }
