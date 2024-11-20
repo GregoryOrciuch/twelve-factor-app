@@ -5,7 +5,6 @@ on:
     branches:
       - develop
 
-
 env:
   PYTHON_VERSION: "3.13"
 
@@ -43,7 +42,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: .
-          platforms: linux/amd64
+          platforms: linux/amd64,linux/arm64
           push: false
           build-args: |
             version=${{ env.PYTHON_VERSION }}
