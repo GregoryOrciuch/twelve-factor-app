@@ -1,4 +1,4 @@
-FROM cgr.dev/chainguard/wolfi-base
+FROM cgr.dev/chainguard/wolfi-base:latest
 
 ARG version=3.13
 
