@@ -1,2 +1,2 @@
-fastapi[standard]==0.115.5
+fastapi[standard]==0.115.8
 starlette==0.41.3
